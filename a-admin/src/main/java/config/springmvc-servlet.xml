@@ -24,6 +24,7 @@
     <mvc:resources location="/static/images/" mapping="/images/**" />
     <mvc:resources location="/static/font-awesome/" mapping="/font-awesome/**" />
     <mvc:resources location="/static/plugin/" mapping="/plugin/**" />
+    <mvc:resources location="/favicon.ico" mapping="favicon.ico" />
 
 	<!-- 避免IE在ajax请求时，返回json出现下载 -->
 	<!-- <bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">    
