@@ -6,9 +6,8 @@
 		<groupId>a</groupId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>a</groupId>
+
 	<artifactId>a-admin</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
 	<dependencies>

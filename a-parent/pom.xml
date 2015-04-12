@@ -11,9 +11,10 @@
 		<spring-data-jpa.version>1.2.0.RELEASE</spring-data-jpa.version>
 		<mybatis.version>3.1.1</mybatis.version>
 		<log4j.version>1.2.17</log4j.version>
+		<slf4j.version>1.7.4</slf4j.version>
 		<freemarker.version>2.3.19</freemarker.version>
 		<junit.version>4.10</junit.version>
-		<jetty.version>7.6.7.v20120910</jetty.version>
+		<jetty.version>8.1.8.v20121106</jetty.version>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jdk.version>1.7</jdk.version>
@@ -143,6 +144,11 @@
 			<version>${log4j.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
 			<version>${freemarker.version}</version>
@@ -153,7 +159,7 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.eclipse.jetty.aggregate</groupId>
 			<artifactId>jetty-webapp</artifactId>
 			<version>${jetty.version}</version>
@@ -164,7 +170,7 @@
 			<artifactId>jetty-jsp</artifactId>
 			<version>${jetty.version}</version>
 			<scope>provided</scope>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -203,7 +209,16 @@
 			<artifactId>json-lib-ext-spring</artifactId>
 			<version>1.0.2</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.4.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.2</version>
+		</dependency>
 	</dependencies>
 
 

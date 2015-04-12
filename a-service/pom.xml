@@ -6,10 +6,10 @@
 		<groupId>a</groupId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>a</groupId>
-	<artifactId>a-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 
+	<artifactId>a-service</artifactId>
+	<packaging>jar</packaging>
+	
 	<build>
 		<sourceDirectory>${basedir}/src/main/java</sourceDirectory>
 		<outputDirectory>${basedir}/target/classes</outputDirectory>
