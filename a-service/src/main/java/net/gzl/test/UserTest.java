@@ -30,6 +30,8 @@ public class UserTest {
 	@Test
 	public void getListTest(){
 		User user = new User();
+		user.setName("tom");
+		user.setRoles("1");
 		List<User> list = userService.getList(user);
 		System.err.println(list.size());
 	}

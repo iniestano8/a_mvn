@@ -33,6 +33,8 @@ public class LoginController extends BaseController{
 		user = userService.getByNameAndPwd(user);
 		if(ValidateUtil.isValid(user)){
 			Cookie cookie = new Cookie("user", user.toJsonStr());
+			cookie.setMaxAge(6000);
+			cookie.setPath("/");
 			response.addCookie(cookie);
 		}
 		return "redirect:/";

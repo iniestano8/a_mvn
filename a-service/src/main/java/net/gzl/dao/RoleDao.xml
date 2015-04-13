@@ -3,4 +3,54 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.gzl.dao.RoleDao">
 
+	<resultMap type="net.gzl.entity.Role" id="roleMap">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="authes" column="authes"/>
+	</resultMap>
+
+	<insert id="save" parameterType="net.gzl.entity.Role">
+		INSERT INTO a_role(name, authes) VALUES(
+			#{name},
+			#{authes}
+		)
+	</insert>
+
+	<update id="update" parameterType="net.gzl.entity.Role">
+		UPDATE a_role 
+		<set>
+			<trim suffixOverrides=",">
+				<if test="name != null and name != ''">
+					name = #{name},
+				</if>
+				<if test="authes != null and authes != ''">
+					authes = #{authes}
+				</if>
+			</trim>
+		</set>
+		WHERE id = #{id}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		DELETE FROM a_role WHERE id = #{id}
+	</delete>
+
+	<select id="getById" parameterType="int" resultMap="roleMap">
+		SELECT * FROM a_role WHERE id = #{id}
+	</select>
+	
+	<select id="getList" parameterType="net.gzl.entity.Role" resultMap="roleMap">
+		SELECT * FROM a_role 
+		<where>
+			<trim suffixOverrides="AND">
+				<if test="name != null and name != ''">
+					name = #{name} AND 
+				</if>
+				<if test="authes != null and authes != ''">
+					authes = #{authes}
+				</if>
+			</trim>
+		</where>
+	</select>
+
 </mapper>

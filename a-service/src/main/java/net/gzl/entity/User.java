@@ -91,7 +91,7 @@ public class User {
 	}
 	
 	public String toJsonStr() {
-		return "{'id':'" + id + "','name':'" + name +  "','city':'" + city  + "','roles':'" + roles 
+		return "{'id':'" + id + "','name':'" + name + "','roles':'" + roles 
 				+ "','points':'" + points + "','status':'" + status + "'}";
 	}
 	

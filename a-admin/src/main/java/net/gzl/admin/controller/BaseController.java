@@ -10,6 +10,7 @@ import net.gzl.entity.Auth;
 import net.gzl.entity.Role;
 import net.gzl.entity.User;
 import net.gzl.service.IAuthService;
+import net.gzl.service.IRoleService;
 import net.gzl.service.IUserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +27,12 @@ public class BaseController {
 	private IUserService userService;
 	@Autowired
 	private IAuthService authService;
+	@Autowired
+	private IRoleService roleService;
 	
 	@RequestMapping("/")
 	public ModelAndView toIndex(ModelAndView mav, HttpServletRequest request){
+		mav.getModel().put("user", getLoginUser(request));
 		mav.getModel().put("authes", getAuthesByLoginUser(request));
 		mav.setViewName("index");
 		return mav;
@@ -67,15 +71,23 @@ public class BaseController {
 	
 	protected Role getRoleByLoginUser(HttpServletRequest request){
 		Role role = new Role();
-		
+		String roleStr = getLoginUser(request).getRoles();
+		if(ValidateUtil.isValid(roleStr)){
+			String[] roleArr = roleStr.split("-");
+			if(ValidateUtil.isValid(roleArr)){
+				role = roleService.getById(Integer.parseInt(roleArr[0]));
+			}
+		}
 		return role;
 	}
 	
 	protected List<Auth> getAuthesByLoginUser(HttpServletRequest request){
+		List<Auth> authes = null;
 		String authStr = getRoleByLoginUser(request).getAuthes();
-		authStr = "1-2-3-4-5-6";
-		String[] authArr = authStr.split("-");
-		List<Auth> authes = authService.getByIds(Arrays.asList(authArr));
+		if(ValidateUtil.isValid(authStr)){
+			String[] authArr = authStr.split("-");
+			authes = authService.getByIds(Arrays.asList(authArr));
+		}
 		return authes;
 	}
 	
