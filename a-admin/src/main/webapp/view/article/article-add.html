@@ -1,0 +1,28 @@
+<#include "/common/top.html" />
+<link href="/plugin/ueditor/themes/default/css/umeditor.css" rel="stylesheet" />
+<#include "/common/left.html" />
+
+<div id="content">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="/" class="tip-bottom"><i class="icon-home"></i> Home</a><a href="#" class="current">文章管理</a> </div>
+    <h1>文章编辑</h1>
+  </div>
+  <div class="container-fluid">
+    <hr>
+    <div class="row-fluid">
+      <div class="span12" style="min-height: 470px;">
+        <div class="widget-box">
+          <script type="text/plain" id="myEditor" style="width:100%">
+    		
+		  </script>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<#include "/common/bottom.html" />
+<script type="text/javascript" src="/plugin/ueditor/umeditor.config.js"></script>
+<script type="text/javascript" src="/plugin/ueditor/umeditor.js"></script>
+<script type="text/javascript">
+	var um = UM.getEditor('myEditor');
+</script>

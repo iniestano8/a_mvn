@@ -10,12 +10,12 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/user")
 public class UserController extends BaseController {
 
-	@RequestMapping("/")
+	/*@RequestMapping("/")
 	public ModelAndView toIndex(ModelAndView mav){
 		
-		mav.setViewName("index");
+//		mav.setViewName("index");
 		return mav;
-	}
+	}*/
 	
 	@RequestMapping("/toInfoEdit")
 	public ModelAndView toInfoEdit(ModelAndView mav, HttpServletRequest request){

@@ -71,6 +71,10 @@ public class BaseController {
 	
 	protected Role getRoleByLoginUser(HttpServletRequest request){
 		Role role = new Role();
+		User user = getLoginUser(request);
+		if(!ValidateUtil.isValid(user)){
+			return null;
+		}
 		String roleStr = getLoginUser(request).getRoles();
 		if(ValidateUtil.isValid(roleStr)){
 			String[] roleArr = roleStr.split("-");
@@ -83,6 +87,10 @@ public class BaseController {
 	
 	protected List<Auth> getAuthesByLoginUser(HttpServletRequest request){
 		List<Auth> authes = null;
+		Role role = getRoleByLoginUser(request);
+		if(!ValidateUtil.isValid(role)){
+			return null;
+		}
 		String authStr = getRoleByLoginUser(request).getAuthes();
 		if(ValidateUtil.isValid(authStr)){
 			String[] authArr = authStr.split("-");
